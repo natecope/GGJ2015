@@ -15,7 +15,7 @@ public enum PlayerAction{
 public class Player : MonoBehaviour {
 
 	public static int speed;
-	public static hitPoints;
+	public static int hitPoints;
 	public static PlayerAction currentState;
 	public static float MovementSpeed = 100.0f;
 	Vector3 oldPos;
@@ -30,14 +30,14 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		base.update();
-		getInput();
+//		base.update();
+//		getInput();
 	}
 
 	void getInput()
 	{
-		if (Input.GetKeyDown (KeyCode.D)) {
-			transform.localPosition.x = 1 * MovementSpeed * Time.deltaTime();		
-		}
+//		if (Input.GetKeyDown (KeyCode.D)) {
+//			transform.localPosition.x = 1 * MovementSpeed * Time.deltaTime();		
+//		}
 	}
 }
