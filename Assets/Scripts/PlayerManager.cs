@@ -18,7 +18,8 @@ public class PlayerManager : MonoBehaviour {
 	public PlayerAction currentState;
 	public bool canFly = false;
 	public float flightSpeed = 0.25f;
-	public float MovementSpeed = 1600.0f;
+	public float MovementSpeed = 16000.0f;
+
 	public bool isLookingRight;
 	public SpriteRenderer playerSprite;
 	public float jumpForce;
@@ -28,14 +29,13 @@ public class PlayerManager : MonoBehaviour {
 	public float xVelo;
 	public float inputH;
 	public float inputV;
-	
+
 	// Use this for initialization
 	void Start () {
 		hitPoints = 3;
 		isLookingRight=true;
 	//	playerSprite = gameObject.GetComponent<SpriteRenderer>();
-		maxVelo = 2300;
-		jumpForce = 250.0f;
+
 	}
 
 	void OnCollisionEnter2D (Collision2D other) {
@@ -101,8 +101,8 @@ public class PlayerManager : MonoBehaviour {
 		//jumping
 		if(movementVertical >0)
 		{
-			if(currentState != PlayerAction.Jump && currentState != PlayerAction.Walking){
-				currentState = PlayerAction.Jump;
+			if(currentState != PlayerAction.Jump && rigidbody2D.velocity.y ==0.0f){
+		currentState = PlayerAction.Jump;
 				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			}
 		}else if(movementVertical <0){
