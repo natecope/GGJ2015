@@ -1,0 +1,278 @@
+fileFormatVersion: 2
+guid: 3d727fc23111b444e972eb8101c67604
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: spritesheet_hero_0
+    21300002: spritesheet_hero_1
+    21300004: spritesheet_hero_2
+    21300006: spritesheet_hero_3
+    21300008: spritesheet_hero_4
+    21300010: spritesheet_hero_5
+    21300012: spritesheet_hero_6
+    21300014: spritesheet_hero_7
+    21300016: spritesheet_hero_8
+    21300018: spritesheet_hero_9
+    21300020: spritesheet_hero_10
+    21300022: spritesheet_hero_11
+    21300024: spritesheet_hero_12
+    21300026: spritesheet_hero_13
+    21300028: spritesheet_hero_14
+    21300030: spritesheet_hero_15
+    21300032: spritesheet_hero_16
+    21300034: spritesheet_hero_17
+    21300036: spritesheet_hero_18
+    21300038: spritesheet_hero_19
+    21300040: spritesheet_hero_20
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: spritesheet_hero_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 673
+        width: 78
+        height: 62
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 673
+        width: 76
+        height: 62
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_2
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 676
+        width: 80
+        height: 59
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 609
+        width: 56
+        height: 62
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_4
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 609
+        width: 52
+        height: 62
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_5
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 607
+        width: 46
+        height: 64
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_6
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 600
+        width: 61
+        height: 71
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_7
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 528
+        width: 51
+        height: 62
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_8
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 526
+        width: 46
+        height: 64
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_9
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 518
+        width: 74
+        height: 71
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 447
+        width: 88
+        height: 71
+      alignment: 9
+      pivot: {x: .467000008, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_11
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 447
+        width: 75
+        height: 71
+      alignment: 9
+      pivot: {x: .524999976, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_12
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 447
+        width: 85
+        height: 71
+      alignment: 9
+      pivot: {x: .58099997, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_13
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 369
+        width: 92
+        height: 71
+      alignment: 9
+      pivot: {x: .541999996, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_14
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 376
+        width: 99
+        height: 64
+      alignment: 9
+      pivot: {x: .588999987, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 298
+        width: 92
+        height: 67
+      alignment: 9
+      pivot: {x: .564999998, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_16
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 294
+        width: 88
+        height: 71
+      alignment: 9
+      pivot: {x: .589999974, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_17
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 220
+        width: 78
+        height: 71
+      alignment: 9
+      pivot: {x: .61500001, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_18
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 220
+        width: 72
+        height: 71
+      alignment: 9
+      pivot: {x: .610000014, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_19
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 220
+        width: 72
+        height: 71
+      alignment: 9
+      pivot: {x: .610000014, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: spritesheet_hero_20
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 142
+        width: 74
+        height: 71
+      alignment: 9
+      pivot: {x: .600000024, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
