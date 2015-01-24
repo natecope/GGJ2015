@@ -8,7 +8,13 @@ public class DinoManager : MonoBehaviour {
 	public Animator body;
 	public float movementSpeed;
 	public bool fullSpeed;
+
+	public bool movingRight;
+	public bool movingLeft;
 	public bool jumping;
+	public bool doubleJumping;
+	public bool movingRightFast;
+	public bool movingLeftFast;
 
 	// cache for directional changes. will come from body
 	private Vector3 dinoScale;
@@ -42,6 +48,11 @@ public class DinoManager : MonoBehaviour {
 			head1.SetBool ("movingRight", false);
 		}
 
+		if(Input.GetKey (KeyCode.W)){
+			head1.SetBool ("jumping", true);
+		} else {
+			head1.SetBool ("jumping", false);
+		}
 		// reversed input here due to flipped sprite!!
 		if(Input.GetKey(KeyCode.RightArrow)){
 			head2.SetBool ("movingLeft", true);
@@ -55,14 +66,29 @@ public class DinoManager : MonoBehaviour {
 			head2.SetBool ("movingRight", false);
 		}
 
+		if(Input.GetKey (KeyCode.UpArrow)){
+			head2.SetBool ("jumping", true);
+		} else {
+			head2.SetBool ("jumping", false);
+		}
+
+		if(Input.GetKey (KeyCode.UpArrow) && Input.GetKey (KeyCode.W)){
+			body.SetBool("dinoBodyJumping", true);
+			jumping = true;
+		} else {
+			body.SetBool("dinoBodyJumping", false);
+			jumping = false;
+		}
+
 		if(Input.GetKey(KeyCode.A) && Input.GetKey (KeyCode.LeftArrow)){
 			Debug.Log("both lefts pressed");
 			body.SetBool ("dinoBodyMovingLeft", true);
 			Vector3 newDinoScale = new Vector3(dinoScale.x, dinoScale.y, dinoScale.z);
 			body.transform.localScale = newDinoScale;
-
+			movingLeft =true; 
 		} else {
 			body.SetBool ("dinoBodyMovingLeft", false);
+			movingLeft = false;
 		}
 	
 		if(Input.GetKey(KeyCode.D) && Input.GetKey (KeyCode.RightArrow)){
@@ -70,10 +96,12 @@ public class DinoManager : MonoBehaviour {
 			body.SetBool ("dinoBodyMovingRight", true);
 			Vector3 newDinoScale = new Vector3(-dinoScale.x, dinoScale.y, dinoScale.z);
 			body.transform.localScale = newDinoScale;
-
+			movingRight = true;
 
 		} else {
 			body.SetBool ("dinoBodyMovingRight", false);
+			movingRight = false;
+
 		}
 	}
 }
