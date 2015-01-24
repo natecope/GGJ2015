@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour {
 		else 
 			adjustedSpeed = 0.0f;
 		rigidbody2D.AddForce (new Vector3 (movementHorizontal * adjustedSpeed, 0));
+
 	}
 	void getInput()
 	{
