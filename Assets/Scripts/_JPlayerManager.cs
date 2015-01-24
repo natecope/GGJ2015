@@ -41,7 +41,7 @@ public class _JPlayerManager : MonoBehaviour {
 
 	void FixedUpdate() {
 
-		// Code for sidewas motion
+		// Code for sideways motion
 		float movementHorizontal = Input.GetAxis ("Horizontal");
 		float adjustedSpeed = MovementSpeed;
 		if (rigidbody2D.velocity.y != 0.0f)
