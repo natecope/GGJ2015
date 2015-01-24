@@ -26,6 +26,8 @@ public class PlayerManager : MonoBehaviour {
 	//debugging vars 
 	public float yVelo;
 	public float xVelo;
+	public float inputH;
+	public float inputV;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +35,7 @@ public class PlayerManager : MonoBehaviour {
 		isLookingRight=true;
 		playerSprite = gameObject.GetComponent<SpriteRenderer>();
 		maxVelo = 3;
+		jumpForce = 100.0f;
 	}
 	
 	// Update is called once per frame
@@ -53,8 +56,10 @@ public class PlayerManager : MonoBehaviour {
 		//begin debug code
 		yVelo = rigidbody2D.velocity.y; 
 		xVelo = rigidbody2D.velocity.x; 
+		inputH = movementHorizontal;
+		inputV = movementVertical;
 		//end debug code
-		if ((movementHorizontal < 0 || movementHorizontal > 0) ) {
+		if (movementHorizontal < 0 || movementHorizontal > 0 ) {
 			currentState = PlayerAction.Walking;		
 		} else {
 			if(rigidbody2D.velocity.y != 0.0f )
@@ -62,7 +67,7 @@ public class PlayerManager : MonoBehaviour {
 			else
 				currentState = PlayerAction.Standing;
 		}
-		if(rigidbody2D.velocity.y == 0.0f && currentState != PlayerAction.Duck){
+		if(rigidbody2D.velocity.y == 0.0f){
 		if (rigidbody2D.velocity.y != 0.0f)
 			if (canFly)
 				adjustedSpeed *= flightSpeed;
@@ -77,9 +82,17 @@ public class PlayerManager : MonoBehaviour {
 				isLookingRight = false;
 				rigidbody2D.AddForce (new Vector2 (-1 * adjustedSpeed * Time.deltaTime, 0));
 			}
-		}
+		}else if(Mathf.Abs(rigidbody2D.velocity.x) > maxVelo)
+		{
+			if(isLookingRight)
+				rigidbody2D.velocity = new Vector2(1 * maxVelo,0);
+			else
+				rigidbody2D.velocity = new Vector2(-1 * maxVelo,0);
 
 		}
+	}
+
+
 		//jumping
 		if(movementVertical >0)
 		{
