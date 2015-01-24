@@ -26,6 +26,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: dinoBodyJumping
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -194,18 +200,18 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110291052}
+      first: {fileID: 110236316}
       second:
-      - {fileID: 110159108}
+      - {fileID: 110194186}
+      - {fileID: 110108356}
     data:
       first: {fileID: 110297876}
       second:
       - {fileID: 110144392}
     data:
-      first: {fileID: 110236316}
+      first: {fileID: 110291052}
       second:
-      - {fileID: 110194186}
-      - {fileID: 110108356}
+      - {fileID: 110159108}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 72, y: 24, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
