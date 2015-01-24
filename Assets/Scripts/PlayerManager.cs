@@ -12,12 +12,12 @@ public enum PlayerAction{
 	Duck
 }
 
-public class Player : MonoBehaviour {
+public class PlayerManager : MonoBehaviour {
 
 	public static int speed;
-	public static hitPoints;
+	public static int hitPoints;
 	public static PlayerAction currentState;
-	public static float MovementSpeed = 100.0f;
+	public static float MovementSpeed = 1.1f;
 	Vector3 oldPos;
 	Vector3 newPos;
 	// Use this for initialization
@@ -30,14 +30,14 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		base.update();
 		getInput();
 	}
 
 	void getInput()
 	{
 		if (Input.GetKeyDown (KeyCode.D)) {
-			transform.localPosition.x = 1 * MovementSpeed * Time.deltaTime();		
+			newPos.x = 1 * MovementSpeed * Time.deltaTime;		
 		}
+		transform.localPosition = newPos;
 	}
 }
