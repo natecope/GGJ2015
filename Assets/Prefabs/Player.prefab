@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21239360}
   - 61: {fileID: 6195350}
   - 50: {fileID: 5083610}
-  - 114: {fileID: 11485038}
+  - 114: {fileID: 11409830}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -135,7 +135,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185038}
   m_Enabled: 1
---- !u!114 &11485038
+--- !u!114 &11409830
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -143,12 +143,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 139360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 434cba46efdc1184d9ea07c850317b23, type: 3}
+  m_Script: {fileID: 11500000, guid: 00b2d10deb55ea04d846ff779be6b05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canFly: 0
   flightSpeed: .25
-  MovementSpeed: 10
+  MovementSpeed: 100
 --- !u!124 &12485038
 Behaviour:
   m_ObjectHideFlags: 1
