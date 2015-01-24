@@ -4,7 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 
-	public static Player playerObject;
+	public static PlayerManager playerObject;
 	// Use this for initialization
 	void Start () {
 		
