@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 //player states handling the different animations
-public enum PlayerAction{
+public enum PlayerActions{
 	Standing,
 	Walking,
 	Running,
@@ -12,10 +12,10 @@ public enum PlayerAction{
 	Duck
 }
 
-public class PlayerManager : MonoBehaviour {
+public class _JPlayerManager : MonoBehaviour {
 
 	public static int hitPoints;
-	public static PlayerAction currentState;
+	public static PlayerActions currentState;
 	public bool canFly = false;
 	public float flightSpeed = 0.25f;
 	public float MovementSpeed = 0.8f;
