@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour {
 	public float MovementSpeed = 16000.0f;
 
 	public bool isLookingRight;
-	public SpriteRenderer playerSprite;
+	public DinoManager dinoMan;
 	public float jumpForce;
 	public float maxVelo;
 	//debugging vars 
@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour {
 	void Start () {
 		hitPoints = 3;
 		isLookingRight=true;
-	//	playerSprite = gameObject.GetComponent<SpriteRenderer>();
+		dinoMan = gameObject.GetComponent<DinoManager>();
 
 	}
 
@@ -80,13 +80,22 @@ public class PlayerManager : MonoBehaviour {
 				adjustedSpeed = 0.0f;
 			if(Mathf.Abs(rigidbody2D.velocity.x) < maxVelo)
 			{
-				if (movementHorizontal > 0) {
+				if (dinoMan.movingRight) {
+					isLookingRight = true;
+					rigidbody2D.AddForce (new Vector2 (1 * (adjustedSpeed/2) * Time.deltaTime, 0));
+				}else if(dinoMan.movingLeft ){
+					isLookingRight = false;
+					rigidbody2D.AddForce (new Vector2 (-1 * (adjustedSpeed / 2) * Time.deltaTime, 0));
+				}
+
+				if (dinoMan.movingRight) {
 					isLookingRight = true;
 					rigidbody2D.AddForce (new Vector2 (1 * adjustedSpeed * Time.deltaTime, 0));
-				}else if(movementHorizontal < 0){
+				}else if(dinoMan.movingLeft ){
 					isLookingRight = false;
 					rigidbody2D.AddForce (new Vector2 (-1 * adjustedSpeed * Time.deltaTime, 0));
 				}
+
 			}else if(Mathf.Abs(rigidbody2D.velocity.x) > maxVelo)
 			{
 				if(isLookingRight)
