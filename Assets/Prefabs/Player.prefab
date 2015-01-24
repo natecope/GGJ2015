@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 439360}
   - 212: {fileID: 21239360}
-  - 61: {fileID: 6195350}
   - 50: {fileID: 5083610}
-  - 114: {fileID: 11409830}
+  - 114: {fileID: 11430420}
+  - 68: {fileID: 6830428}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -31,7 +31,6 @@ GameObject:
   - 92: {fileID: 9285038}
   - 124: {fileID: 12485038}
   - 81: {fileID: 8185038}
-  - 114: {fileID: 11407802}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -111,8 +110,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6195350
-BoxCollider2D:
+--- !u!68 &6830428
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -120,8 +119,14 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .159999996, y: .159999996}
-  m_Center: {x: 0, y: 0}
+  m_Points:
+  - {x: -.0799999982, y: .0464501381}
+  - {x: -.0683090463, y: -.043717742}
+  - {x: -.0504700132, y: -.0685606003}
+  - {x: .0546479151, y: -.0681797266}
+  - {x: .0693461522, y: -.0435568094}
+  - {x: .0761160851, y: .0433095694}
+  - {x: -.0799938217, y: .0465204716}
 --- !u!81 &8185038
 AudioListener:
   m_ObjectHideFlags: 1
@@ -136,18 +141,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185038}
   m_Enabled: 1
---- !u!114 &11407802
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 185038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11409830
+--- !u!114 &11430420
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -155,12 +149,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 139360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b2d10deb55ea04d846ff779be6b05f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8deb19069a9b54ed6b881d9cfa55e574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canFly: 0
   flightSpeed: .25
   MovementSpeed: 100
+  jumpForce: 10
 --- !u!124 &12485038
 Behaviour:
   m_ObjectHideFlags: 1
