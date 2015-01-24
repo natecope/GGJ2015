@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
+public class MapGenerator : MonoBehaviour {
 
-
+	public GameObject blackCube;
 
 	// Use this for initialization
 	void Start () {
