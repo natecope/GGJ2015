@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5063150}
   - 114: {fileID: 11460152}
   - 68: {fileID: 6806574}
+  - 61: {fileID: 6178654}
   m_Layer: 0
   m_Name: Blue Enemy
   m_TagString: Enemy
@@ -46,6 +47,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!61 &6178654
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113064}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .139507294, y: .0998880416}
+  m_Center: {x: .000683091581, y: .00819706917}
 --- !u!68 &6806574
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -56,13 +68,10 @@ EdgeCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Points:
-  - {x: -.0799999982, y: .0464501381}
   - {x: -.0683090463, y: -.043717742}
   - {x: -.0504700132, y: -.0685606003}
   - {x: .0546479151, y: -.0681797266}
   - {x: .0693461522, y: -.0435568094}
-  - {x: .0761160851, y: .0433095694}
-  - {x: -.0799938217, y: .0465204716}
 --- !u!114 &11460152
 MonoBehaviour:
   m_ObjectHideFlags: 1
