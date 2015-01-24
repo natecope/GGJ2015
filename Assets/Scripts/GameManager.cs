@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 	
 		this.playerRefs = new List<GameObject>();
-		dino = (GameObject)Instantiate (dinoPrefab);
+//		dino = (GameObject)Instantiate (dinoPrefab);
 
 
 	}
