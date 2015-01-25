@@ -42,6 +42,14 @@ MonoBehaviour:
   dinoPrefab: {fileID: 157706, guid: 95721bf142f7b46ed8cb72e915066c32, type: 2}
   playerRefs: []
   numberPlayers: 2
+  camRef: {fileID: 0}
+  dino: {fileID: 0}
+  playerManager: {fileID: 0}
+  fader: {fileID: 0}
+  fadeTime: .00999999978
+  fadeOutDelay: 2
+  ripTimeText: {fileID: 0}
+  healthText: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

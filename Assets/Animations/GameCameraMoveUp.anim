@@ -17,19 +17,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: -.5, z: -5}
-        inSlope: {x: 0, y: 4.22142839, z: 0}
-        outSlope: {x: 0, y: 4.22142839, z: 0}
-        tangentMode: 1073741824
-      - time: .466666698
-        value: {x: 0, y: 1.47000003, z: -5}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
+        value: {x: 0, y: 0, z: -5}
+        inSlope: {x: 0, y: 1.5, z: 0}
+        outSlope: {x: 0, y: 1.5, z: 0}
+        tangentMode: 8
       - time: 1
-        value: {x: 0, y: 1.47000003, z: -5}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 1.5, z: -5}
+        inSlope: {x: 0, y: 1.5, z: 0}
+        outSlope: {x: 0, y: 1.5, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -92,15 +87,15 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -.5
-        inSlope: 4.22142839
-        outSlope: 4.22142839
+        value: 0
+        inSlope: 1.5
+        outSlope: 1.5
         tangentMode: 10
-      - time: .466666698
-        value: 1.47000003
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+      - time: 1
+        value: 1.5
+        inSlope: 1.5
+        outSlope: 1.5
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.y
