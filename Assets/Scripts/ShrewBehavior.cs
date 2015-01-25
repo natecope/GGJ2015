@@ -18,11 +18,10 @@ public class ShrewBehavior : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
-		if(other.gameObject.tag == "Feet") {
+		if(other.gameObject.tag == "Feet" && isDangerous) {
 			isDangerous = false;
 			sprite.SetBool("shrewDead",true);
 			Debug.Log("SO DEAD");
-			Destroy(shrewCollider);
 		}
 	}
 
