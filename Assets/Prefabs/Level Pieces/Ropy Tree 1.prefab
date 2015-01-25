@@ -43,7 +43,7 @@ GameObject:
   - 68: {fileID: 6822820}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ GameObject:
   - 61: {fileID: 6122818}
   m_Layer: 0
   m_Name: Leaves Left
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - 61: {fileID: 6122820}
   m_Layer: 0
   m_Name: Leaves Right
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 422820}
   m_Layer: 0
-  m_Name: Ropy Tree
+  m_Name: Ropy Tree 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
