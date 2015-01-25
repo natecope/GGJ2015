@@ -69,8 +69,14 @@ public class PlayerManager : MonoBehaviour {
 		} else {
 			if(rigidbody2D.velocity.y != 0.0f )
 				currentState = PlayerAction.Jump;
-			else
+			else{
 				currentState = PlayerAction.Standing;
+				if(rigidbody2D.velocity.x > 0.0f)
+					rigidbody2D.AddForce (new Vector2(-0.5f  * adjustedSpeed * Time.deltaTime, 0));
+				else if(rigidbody2D.velocity.x < 0.0f)
+					rigidbody2D.AddForce (new Vector2(0.5f  * adjustedSpeed * Time.deltaTime, 0));
+
+			}
 		}
 		if(rigidbody2D.velocity.y == 0.0f){
 			if (rigidbody2D.velocity.y != 0.0f)

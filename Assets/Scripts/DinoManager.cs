@@ -80,7 +80,7 @@ public class DinoManager : MonoBehaviour {
 			jumping = false;
 		}
 
-		if(Input.GetKey(KeyCode.A) && Input.GetKey (KeyCode.LeftArrow)){
+		if(Input.GetKey(KeyCode.A) && Input.GetKey (KeyCode.LeftArrow)|| rigidbody2D.velocity.x < 0.0f){
 			Debug.Log("both lefts pressed");
 			body.SetBool ("dinoBodyMovingLeft", true);
 			Vector3 newDinoScale = new Vector3(dinoScale.x, dinoScale.y, dinoScale.z);
@@ -91,13 +91,13 @@ public class DinoManager : MonoBehaviour {
 			movingLeft = false;
 		}
 	
-		if(Input.GetKey(KeyCode.D) && Input.GetKey (KeyCode.RightArrow)){
+		if(Input.GetKey(KeyCode.D) && Input.GetKey (KeyCode.RightArrow) || rigidbody2D.velocity.x > 0.0f){
 			Debug.Log("both rights pressed");
 			body.SetBool ("dinoBodyMovingRight", true);
 			Vector3 newDinoScale = new Vector3(-dinoScale.x, dinoScale.y, dinoScale.z);
 			body.transform.localScale = newDinoScale;
 			movingRight = true;
-
+		
 		} else {
 			body.SetBool ("dinoBodyMovingRight", false);
 			movingRight = false;
