@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,8 +10,11 @@ public class GameManager : MonoBehaviour {
 	public List<GameObject> playerRefs;
 	public int numberPlayers = 2;
 	public Camera camRef;
-	private GameObject dino;
-	public static PlayerManager playerObject;
+	public DinoManager dino;
+	public PlayerManager playerManager;
+	
+	public Text ripTimeText;
+	public Text healthText;
 
 	// Use this for initialization
 	void Start () {
@@ -31,8 +35,12 @@ public class GameManager : MonoBehaviour {
 			// do stuff with each player here
 		}
 
-	}
+		// print out timer
+		ripTimeText.text = "RIP TIME - " + dino.ripTimeSeconds.ToString("#0");
+		healthText.text = "HEALTH - " + playerManager.hitPoints.ToString("#0");
 
+	}
+	/*
 	void SpawnPlayer() {
 		
 		Debug.Log("Spawning " + numberPlayers + " players!");
@@ -44,5 +52,5 @@ public class GameManager : MonoBehaviour {
 
 		}
 
-	}
+	}*/
 }

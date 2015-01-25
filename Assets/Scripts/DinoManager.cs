@@ -7,6 +7,7 @@ public class DinoManager : MonoBehaviour {
 	public Animator head1;
 	public Animator head2;
 	public Animator body;
+	public Transform bodyTransform;
 	public float movementSpeed;
 	public float ripTimeSeconds;
 	public float pullTimeStart;
@@ -22,7 +23,7 @@ public class DinoManager : MonoBehaviour {
 	public bool movingLeftFast;
 	public bool dead;
 
-	public Text ripTimeText;
+
 
 
 	// getting this to tell it if we're on ground or not
@@ -131,16 +132,15 @@ public class DinoManager : MonoBehaviour {
 
 			}
 
-			// print out timer
-			ripTimeText.text = "RIP TIME - " + ripTimeSeconds.ToString("#0");
+
 			
 			// check for opposing pull
 			// reversed due to head of dino reversal
 			if((head1.GetBool("movingLeft") && head2.GetBool ("movingLeft")) || (head1.GetBool("movingRight") && head2.GetBool ("movingRight"))){
 				StartPullTime(); 
-			} else {
+			} /*else {
 				StopPullTime();
-			}
+			}*/
 		} else { // dead 
 
 
@@ -150,10 +150,11 @@ public class DinoManager : MonoBehaviour {
 	}
 
 	void StartPullTime(){
-		if(!pullTimeStarted){
+		/*if(!pullTimeStarted){
 			pullTimeStarted = true;
 			pullTimeStart = Time.time;
-		}
+		}*/
+		ripTimeSeconds -= Time.deltaTime;
 	}
 
 	void StopPullTime(){
@@ -166,7 +167,15 @@ public class DinoManager : MonoBehaviour {
 	}
 
 	public void DinoDead(){
-		dead = true;
+		if(!dead){
+			Debug.Log ("Dino dead fired");
+			dead = true;
+			body.SetBool("dinoDead", true);
+			head1.SetBool("dead", true);
+			head2.SetBool("dead", true);
+			bodyTransform.position = new Vector3(bodyTransform.position.x, bodyTransform.position.y - 0.6f, bodyTransform.position.z);
+			this.transform.rigidbody2D.isKinematic = true;
+		}
 
 	}
 }

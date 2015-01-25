@@ -78,6 +78,7 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(hitPoints <=0){
+			hitPoints = 0;
 			//Application.LoadLevel(0);
 			//gameObject.SetActive(false);
 			currentState = PlayerAction.Dead;

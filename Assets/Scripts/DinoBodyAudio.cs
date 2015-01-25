@@ -18,4 +18,8 @@ public class DinoBodyAudio : MonoBehaviour {
 	public void PlayFootStep(){
 		if(playerManager.onGround) AudioManager.instance.PlayFootStep();
 	}
+
+	public void PlayDead(){
+		AudioManager.instance.PlayDead();
+	}
 }

@@ -49,6 +49,13 @@ public class AudioManager : MonoBehaviour {
 		//for(int i=0; i < this.stepFx.Length
 	}
 
+	public void PlayDead(){
+		sfxSource.PlayOneShot(this.deathVox[Random.Range(0, this.deathVox.Length)]);
+		musicSource.clip = deathMusic;
+		musicSource.loop = false;
+		musicSource.Play ();
+	}
+
 	public void PlayJump(){
 		sfxSource.PlayOneShot(jumpFx);
 	}
