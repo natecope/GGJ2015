@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21245546}
   - 61: {fileID: 6131050}
   m_Layer: 0
-  m_Name: Blue Enemy Edge Block
+  m_Name: Enemy Edge Block
   m_TagString: MotionControlBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,6 +12,7 @@ GameObject:
   - 95: {fileID: 9598632}
   - 61: {fileID: 6118808}
   - 50: {fileID: 5018808}
+  - 114: {fileID: 11458384}
   m_Layer: 0
   m_Name: Shrew
   m_TagString: Untagged
@@ -72,6 +73,19 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11458384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff4604b73b601e40a936804399fdd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLeft: 1
+  moveSpeed: 100
 --- !u!212 &21298632
 SpriteRenderer:
   m_ObjectHideFlags: 1
