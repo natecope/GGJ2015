@@ -20,6 +20,7 @@ public class ShrewBehavior : MonoBehaviour {
 		if(other.gameObject.tag == "Feet" && isDangerous) {
 			isDangerous = false;
 			Debug.Log("SO DEAD");
+			transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.2f, transform.localPosition.z);
 			transform.localScale = new Vector2(transform.localScale.x, -0.2f);
 			sprite.speed=0;
 		}

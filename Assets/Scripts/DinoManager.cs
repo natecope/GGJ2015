@@ -20,6 +20,7 @@ public class DinoManager : MonoBehaviour {
 	public bool doubleJumping;
 	public bool movingRightFast;
 	public bool movingLeftFast;
+	public bool dead;
 
 	public Text ripTimeText;
 
@@ -46,99 +47,104 @@ public class DinoManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if(!dead){
 
-
-		if(Input.GetKey(KeyCode.A)){
-			head1.SetBool("movingLeft", true);
-		} else {
-			head1.SetBool("movingLeft", false);
-		}
-	
-
-		if(Input.GetKey(KeyCode.D)){
-			head1.SetBool ("movingRight", true);
-		} else {
-			head1.SetBool ("movingRight", false);
-		}
-
-		if(Input.GetKey (KeyCode.W)){
-			head1.SetBool ("jumping", true);
-		} else {
-			head1.SetBool ("jumping", false);
-		}
-		if(Input.GetKeyDown (KeyCode.W)){
-			AudioManager.instance.PlayJumpTry(0);
-		}
-		// reversed input here due to flipped sprite!!
-		if(Input.GetKey(KeyCode.RightArrow)){
-			head2.SetBool ("movingLeft", true);
-		} else {
-			head2.SetBool ("movingLeft", false);
-		}
-
-		if(Input.GetKey(KeyCode.LeftArrow)){
-			head2.SetBool ("movingRight", true);
-		} else {
-			head2.SetBool ("movingRight", false);
-		}
-
-		if(Input.GetKey (KeyCode.UpArrow)){
-			head2.SetBool ("jumping", true);
-		} else {
-			head2.SetBool ("jumping", false);
-		}
-		if(Input.GetKeyDown (KeyCode.UpArrow)){
-			AudioManager.instance.PlayJumpTry(1);
-		}
-
-		if(Input.GetKey (KeyCode.UpArrow) && Input.GetKey (KeyCode.W)){
-			body.SetBool("dinoBodyJumping", true);
-			if(jumping == false) AudioManager.instance.PlayJump();
-			jumping = true;
-		} else {
-			body.SetBool("dinoBodyJumping", false);
-			jumping = false;
-		}
-
-		if(Input.GetKey(KeyCode.A) && Input.GetKey (KeyCode.LeftArrow)){	//|| rigidbody2D.velocity.x < 0.0f){
-			Debug.Log("both lefts pressed");
-			body.SetBool ("dinoBodyMovingLeft", true);
-			Vector3 newDinoScale = new Vector3(dinoScale.x, dinoScale.y, dinoScale.z);
-			body.transform.localScale = newDinoScale;
-			movingLeft =true; 
-		} else {
-			if(rigidbody2D.velocity.x < 0.0f && !movingLeft)
-				body.SetBool ("dinoBodyMovingLeft", true);
-			else
-				body.SetBool ("dinoBodyMovingLeft", false);
-			movingLeft = false;
-		}
-	
-		if(Input.GetKey(KeyCode.D) && Input.GetKey (KeyCode.RightArrow)){
-			Debug.Log("both rights pressed");
-			body.SetBool ("dinoBodyMovingRight", true);
-			Vector3 newDinoScale = new Vector3(-dinoScale.x, dinoScale.y, dinoScale.z);
-			body.transform.localScale = newDinoScale;
-			movingRight = true;
-			
-		} else {
-			if(rigidbody2D.velocity.x > 0.0f && !movingLeft)
-				body.SetBool ("dinoBodyMovingRight", true);
-			else
-				body.SetBool ("dinoBodyMovingRight", false);
-			movingRight = false;
-
-		}
-
-		// print out timer
-		ripTimeText.text = "RIP TIME - " + ripTimeSeconds.ToString("#0");
+			if(Input.GetKey(KeyCode.A)){
+				head1.SetBool("movingLeft", true);
+			} else {
+				head1.SetBool("movingLeft", false);
+			}
 		
-		// check for opposing pull
-		// reversed due to head of dino reversal
-		if((head1.GetBool("movingLeft") && head2.GetBool ("movingLeft")) || (head1.GetBool("movingRight") && head2.GetBool ("movingRight"))){
-			StartPullTime(); 
-		} else {
-			StopPullTime();
+
+			if(Input.GetKey(KeyCode.D)){
+				head1.SetBool ("movingRight", true);
+			} else {
+				head1.SetBool ("movingRight", false);
+			}
+
+			if(Input.GetKey (KeyCode.W)){
+				head1.SetBool ("jumping", true);
+			} else {
+				head1.SetBool ("jumping", false);
+			}
+			if(Input.GetKeyDown (KeyCode.W)){
+				AudioManager.instance.PlayJumpTry(0);
+			}
+			// reversed input here due to flipped sprite!!
+			if(Input.GetKey(KeyCode.RightArrow)){
+				head2.SetBool ("movingLeft", true);
+			} else {
+				head2.SetBool ("movingLeft", false);
+			}
+
+			if(Input.GetKey(KeyCode.LeftArrow)){
+				head2.SetBool ("movingRight", true);
+			} else {
+				head2.SetBool ("movingRight", false);
+			}
+
+			if(Input.GetKey (KeyCode.UpArrow)){
+				head2.SetBool ("jumping", true);
+			} else {
+				head2.SetBool ("jumping", false);
+			}
+			if(Input.GetKeyDown (KeyCode.UpArrow)){
+				AudioManager.instance.PlayJumpTry(1);
+			}
+
+			if(Input.GetKey (KeyCode.UpArrow) && Input.GetKey (KeyCode.W)){
+				body.SetBool("dinoBodyJumping", true);
+				if(jumping == false) AudioManager.instance.PlayJump();
+				jumping = true;
+			} else {
+				body.SetBool("dinoBodyJumping", false);
+				jumping = false;
+			}
+
+			if(Input.GetKey(KeyCode.A) && Input.GetKey (KeyCode.LeftArrow)){	//|| rigidbody2D.velocity.x < 0.0f){
+				Debug.Log("both lefts pressed");
+				body.SetBool ("dinoBodyMovingLeft", true);
+				Vector3 newDinoScale = new Vector3(dinoScale.x, dinoScale.y, dinoScale.z);
+				body.transform.localScale = newDinoScale;
+				movingLeft =true; 
+			} else {
+				if(rigidbody2D.velocity.x < 0.0f && !movingLeft)
+					body.SetBool ("dinoBodyMovingLeft", true);
+				else
+					body.SetBool ("dinoBodyMovingLeft", false);
+				movingLeft = false;
+			}
+		
+			if(Input.GetKey(KeyCode.D) && Input.GetKey (KeyCode.RightArrow)){
+				Debug.Log("both rights pressed");
+				body.SetBool ("dinoBodyMovingRight", true);
+				Vector3 newDinoScale = new Vector3(-dinoScale.x, dinoScale.y, dinoScale.z);
+				body.transform.localScale = newDinoScale;
+				movingRight = true;
+				
+			} else {
+				if(rigidbody2D.velocity.x > 0.0f && !movingLeft)
+					body.SetBool ("dinoBodyMovingRight", true);
+				else
+					body.SetBool ("dinoBodyMovingRight", false);
+				movingRight = false;
+
+			}
+
+			// print out timer
+			ripTimeText.text = "RIP TIME - " + ripTimeSeconds.ToString("#0");
+			
+			// check for opposing pull
+			// reversed due to head of dino reversal
+			if((head1.GetBool("movingLeft") && head2.GetBool ("movingLeft")) || (head1.GetBool("movingRight") && head2.GetBool ("movingRight"))){
+				StartPullTime(); 
+			} else {
+				StopPullTime();
+			}
+		} else { // dead 
+
+
+
 		}
 	
 	}
@@ -156,6 +162,11 @@ public class DinoManager : MonoBehaviour {
 			ripTimeSeconds -= (Time.time - pullTimeStart);
 			pullTimeStart = 0;
 		}
+
+	}
+
+	public void DinoDead(){
+		dead = true;
 
 	}
 }

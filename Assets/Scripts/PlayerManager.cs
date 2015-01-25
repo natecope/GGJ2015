@@ -9,7 +9,8 @@ public enum PlayerAction{
 	EffectiveJump,
 	Jump,
 	CounterJump,
-	Duck
+	Duck,
+	Dead
 }
 
 public class PlayerManager : MonoBehaviour {
@@ -73,7 +74,11 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(hitPoints <=0){
-			Application.LoadLevel(0);
+			//Application.LoadLevel(0);
+			//gameObject.SetActive(false);
+			currentState = PlayerAction.Dead;
+			//this.gameObject.SetActive(false);
+			dinoMan.DinoDead();
 		}
 	}
 
