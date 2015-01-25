@@ -39,16 +39,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5421aeddf00ef43988e7dbce744150c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMusic: {fileID: 0}
+  squish: {fileID: 0}
+  gameMusic: {fileID: 8300000, guid: 1f2804703fc394e16b791ff4c681fca0, type: 3}
   titleMusic: {fileID: 0}
-  deathMusic: {fileID: 0}
-  jumpFx: {fileID: 0}
-  deathVox: []
-  jumpVox: []
-  stepFx: []
-  tearFX: []
-  victoryVox: []
-  tearVox: []
+  deathMusic: {fileID: 8300000, guid: 50f4abf583e1c4e06bf7d9436f96ce52, type: 3}
+  jumpFx: {fileID: 8300000, guid: e60f85752462c4a52b456f7592037c5f, type: 3}
+  deathVox:
+  - {fileID: 8300000, guid: 0ea666f2c6f4b469daf16324c578a9f6, type: 3}
+  - {fileID: 8300000, guid: 89bbafde9fa774dd0b5b5727547dad10, type: 3}
+  jumpVox:
+  - {fileID: 8300000, guid: 3e833218dfc254e1e867914d90dcec6f, type: 3}
+  - {fileID: 8300000, guid: 084b7eecf623b4c35bd3ff3085d15063, type: 3}
+  stepFx:
+  - {fileID: 8300000, guid: cb621744d53f44a498688a451cd3c9d8, type: 3}
+  - {fileID: 8300000, guid: dab8ca7983b1e445785d240d00381e1e, type: 3}
+  - {fileID: 8300000, guid: 985f1e812cdd4463c9172450c644846a, type: 3}
+  tearFX:
+  - {fileID: 8300000, guid: 9414697672821423781f3ee69421d9d4, type: 3}
+  - {fileID: 8300000, guid: 09546098aa06944ea962cc6426ffcbe2, type: 3}
+  victoryVox:
+  - {fileID: 8300000, guid: c2c3a16e66a8b484bb12325c5a97a0c9, type: 3}
+  - {fileID: 8300000, guid: bec928e91e2384709ab30404efb1397f, type: 3}
+  tearVox:
+  - {fileID: 8300000, guid: e8c83a950223f49838cae876ced426d5, type: 3}
+  - {fileID: 8300000, guid: ccc65f74fe5554424a1ce1b5085c1b4f, type: 3}
+  - {fileID: 8300000, guid: bdebb568232734224bd3c45aff653331, type: 3}
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

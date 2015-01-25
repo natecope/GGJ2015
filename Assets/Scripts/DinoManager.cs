@@ -8,6 +8,8 @@ public class DinoManager : MonoBehaviour {
 	public Animator head2;
 	public Animator body;
 	public Transform bodyTransform;
+
+	public GameObject butterflyParticles;
 	public float movementSpeed;
 	public float ripTimeSeconds;
 	public float pullTimeStart;
@@ -49,7 +51,9 @@ public class DinoManager : MonoBehaviour {
 	void Update () {
 
 		if(!dead){
-
+			if (ripTimeSeconds <= 0){
+				DinoDead();
+			}
 			if(Input.GetKey(KeyCode.A)){
 				head1.SetBool("movingLeft", true);
 			} else {
@@ -169,6 +173,7 @@ public class DinoManager : MonoBehaviour {
 	public void DinoDead(){
 		if(!dead){
 			Debug.Log ("Dino dead fired");
+			butterflyParticles.SetActive(true);
 			dead = true;
 			body.SetBool("dinoDead", true);
 			head1.SetBool("dead", true);

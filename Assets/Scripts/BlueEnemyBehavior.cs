@@ -5,6 +5,7 @@ public class BlueEnemyBehavior : MonoBehaviour {
 
 	public bool startLeft = true;
 	public float moveSpeed = 100;
+	public bool isFlying;
 	private int moveLeft;
 	private Vector3 cachedScale;
 	public ShrewBehavior shrewBehavior;
@@ -43,8 +44,13 @@ public class BlueEnemyBehavior : MonoBehaviour {
 		}                                          	
 	}
 	void FixedUpdate () {
-		//Debug.Log(transform.localRotation.z);	
-		if(shrewBehavior.isDangerous)
-		rigidbody2D.velocity = new Vector2(moveLeft*moveSpeed,rigidbody2D.velocity.y);
+		Debug.Log(transform.localRotation.z);	
+		if(shrewBehavior.isDangerous && isFlying && (rigidbody2D.velocity.y==0)){
+			rigidbody2D.velocity = new Vector2(moveLeft*moveSpeed,rigidbody2D.velocity.y);
+			rigidbody2D.AddForce(new Vector2(0,130.0f));
+		}
+		else
+			rigidbody2D.velocity = new Vector2(moveLeft*moveSpeed,rigidbody2D.velocity.y);
+
 	}
 }
