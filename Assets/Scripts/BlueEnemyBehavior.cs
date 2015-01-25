@@ -6,6 +6,7 @@ public class BlueEnemyBehavior : MonoBehaviour {
 	public bool startLeft = true;
 	public float moveSpeed = 100;
 	private int moveLeft;
+	private Vector3 cachedScale;
 
 	void Awake () {
 		if(startLeft)
@@ -16,7 +17,8 @@ public class BlueEnemyBehavior : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-	
+		//cache scale in case it gets changed while 
+		cachedScale = transform.localScale;
 	}
 
 	void OnBecameVisible () {
@@ -29,8 +31,11 @@ public class BlueEnemyBehavior : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		if(other.gameObject.tag=="MotionControlBlock")
+		if(other.gameObject.tag=="MotionControlBlock"){
 			moveLeft = -moveLeft;
+			Vector3 newScale = new Vector3(-cachedScale.x, cachedScale.y, cachedScale.z);
+			transform.localScale = newScale;
+		}
 		else if(other.gameObject.tag == "Player")
 			Debug.Log("OUCH!");
 

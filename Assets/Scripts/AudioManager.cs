@@ -2,7 +2,16 @@
 using System.Collections;
 
 public class AudioManager : MonoBehaviour {
-	public AudioClip music;
+	public AudioClip gameMusic;
+	public AudioClip titleMusic;
+	public AudioClip deathMusic;
+	public AudioClip jumpFx;
+	public AudioClip[] deathVox;
+	public AudioClip[] jumpVox;
+	public AudioClip[] stepFx;
+	public AudioClip[] tearFX;
+	public AudioClip[] victoryVox;
+	public AudioClip[] tearVox;
 
 	public static AudioManager instance;
 
