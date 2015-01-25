@@ -47,6 +47,10 @@ public class PlayerManager : MonoBehaviour {
 		{
 
 			hitPoints--;
+			if(isLookingRight)
+				rigidbody2D.AddForce(new Vector2(-160.5f*rigidbody2D.velocity.x+1, 150.5f));
+			else
+				rigidbody2D.AddForce(new Vector2(160.5f*rigidbody2D.velocity.x+1, 150.5f));
 			Debug.Log("ouch!@!@");
 		}	
 		// this insures that the player isn't stopped by the NPC control blocks
@@ -156,7 +160,7 @@ public class PlayerManager : MonoBehaviour {
 		if(dinoMan.jumping)
 		{
 			if(currentState != PlayerAction.Jump && rigidbody2D.velocity.y ==0.0f){
-		currentState = PlayerAction.Jump;
+				currentState = PlayerAction.Jump;
 				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			}
 		}else if(movementVertical <0){

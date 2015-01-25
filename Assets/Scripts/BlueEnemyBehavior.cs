@@ -7,7 +7,7 @@ public class BlueEnemyBehavior : MonoBehaviour {
 	public float moveSpeed = 100;
 	private int moveLeft;
 	private Vector3 cachedScale;
-	private ShrewBehavior[] shrewBehavior;
+	public ShrewBehavior shrewBehavior;
 	void Awake () {
 		if(startLeft)
 			moveLeft = -1;
@@ -17,7 +17,7 @@ public class BlueEnemyBehavior : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		shrewBehavior = GetComponents<ShrewBehavior>();
+		shrewBehavior = GetComponent<ShrewBehavior>();
 	}
 
 	void OnBecameVisible () {
@@ -39,11 +39,12 @@ public class BlueEnemyBehavior : MonoBehaviour {
 		}
 		else if(other.gameObject.tag == "Player"){
 			Debug.Log("OUCH!");
-		
+
 		}                                          	
 	}
 	void FixedUpdate () {
-		if(shrewBehavior[0].isDangerous)
+	
+		if(shrewBehavior.isDangerous && Mathf.Round(transform.rotation.z)!=1 )
 		rigidbody2D.velocity = new Vector2(moveLeft*moveSpeed,rigidbody2D.velocity.y);
 	}
 }

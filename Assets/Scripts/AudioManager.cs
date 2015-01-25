@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class AudioManager : MonoBehaviour {
+	public AudioClip squish;
 	public AudioClip gameMusic;
 	public AudioClip titleMusic;
 	public AudioClip deathMusic;
@@ -54,5 +55,10 @@ public class AudioManager : MonoBehaviour {
 
 	public void PlayJumpTry(int dino){
 		sfxSource.PlayOneShot(jumpVox[dino]);
+	}
+
+	public void playSplat()
+	{
+		sfxSource.PlayOneShot(squish);
 	}
 }

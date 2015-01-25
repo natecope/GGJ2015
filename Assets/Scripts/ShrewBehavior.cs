@@ -22,7 +22,9 @@ public class ShrewBehavior : MonoBehaviour {
 			Debug.Log("SO DEAD");
 			transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.2f, transform.localPosition.z);
 			transform.localScale = new Vector2(transform.localScale.x, -0.2f);
+			transform.localRotation =new Quaternion(0,0,0,0);
 			sprite.speed=0;
+			AudioManager.instance.playSplat();
 		}
 	}
 
@@ -30,7 +32,7 @@ public class ShrewBehavior : MonoBehaviour {
 		if(!isDangerous) {
 			if(other.gameObject.tag != "Ground") {
 				Physics2D.IgnoreCollision(this.collider2D, other.collider);
-				//Destroy(gameObject);
+
 			}
 		}
 	}
