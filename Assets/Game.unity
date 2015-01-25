@@ -1933,6 +1933,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 101114, guid: 95721bf142f7b46ed8cb72e915066c32, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95721bf142f7b46ed8cb72e915066c32, type: 2}
   m_RootGameObject: {fileID: 627313875}
@@ -2451,6 +2455,10 @@ Prefab:
       propertyPath: hero
       value: 
       objectReference: {fileID: 627313875}
+    - target: {fileID: 11485466, guid: a7d75990decc449f1b9e506b444ee495, type: 2}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 627313879}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7d75990decc449f1b9e506b444ee495, type: 2}
   m_RootGameObject: {fileID: 783029017}
@@ -4743,6 +4751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLeft: 0
   moveSpeed: 1
+  isFlying: 0
   shrewBehavior: {fileID: 0}
 --- !u!50 &1211459802
 Rigidbody2D:
@@ -4899,6 +4908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLeft: 0
   moveSpeed: 1
+  isFlying: 0
   shrewBehavior: {fileID: 0}
 --- !u!50 &1244335445
 Rigidbody2D:
