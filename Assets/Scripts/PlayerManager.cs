@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour {
 	public int hitPoints;
 	public PlayerAction currentState;
 	public bool canFly = false;
+	public bool onGround;
 	public float flightSpeed = 0.25f;
 	public float MovementSpeed = 16000.0f;
 
@@ -51,11 +52,27 @@ public class PlayerManager : MonoBehaviour {
 		if (other.gameObject.tag == "MotionControlBlock")
 			Physics2D.IgnoreCollision(this.collider2D, other.collider);
 			
+
+		//Debug.Log (other.gameObject.tag);
+	}
+
+	void OnCollisionStay2D (Collision2D other){
+		// checks for ground, changes dino body audio ground off 
+		if (other.gameObject.tag == "Ground"){
+			onGround = true;
+		}
+	}
+
+
+	void OnCollisionExit2D (Collision2D other){
+		if(other.gameObject.tag == "Ground"){
+			onGround = false;
+		}
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if(hitPoints ==0){
+		if(hitPoints <=0){
 			Application.LoadLevel(0);
 		}
 	}
@@ -70,6 +87,8 @@ public class PlayerManager : MonoBehaviour {
 			movementHorizontal = -1.0f;
 		if(dinoMan.movingRight)
 				movementHorizontal =1.0f;
+
+		if(Mathf.Abs(rigidbody2D.velocity.x) <= 0.1) rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
 
 		if(!dinoMan.movingLeft && !dinoMan.movingRight)
 			movementHorizontal = 0.0f;
