@@ -175,6 +175,7 @@ public class DinoManager : MonoBehaviour {
 			head2.SetBool("dead", true);
 			bodyTransform.position = new Vector3(bodyTransform.position.x, bodyTransform.position.y - 0.6f, bodyTransform.position.z);
 			this.transform.rigidbody2D.isKinematic = true;
+			GameManager.instance.StartFadeOutEnumerator();
 		}
 
 	}
