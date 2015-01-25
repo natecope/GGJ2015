@@ -5,6 +5,7 @@ public class BlueEnemyBehavior : MonoBehaviour {
 
 	public bool startLeft = true;
 	public float moveSpeed = 100;
+	public ShrewBehavior shrewBehavior;
 	private int moveLeft;
 
 	void Awake () {
@@ -25,11 +26,11 @@ public class BlueEnemyBehavior : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		if(other.gameObject.tag=="MotionControlBlock")
+		if(other.gameObject.tag=="MotionControlBlock") 
 			moveLeft = -moveLeft;
 		else if(other.gameObject.tag == "Player")
 			Debug.Log("OUCH!");
@@ -37,6 +38,7 @@ public class BlueEnemyBehavior : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		rigidbody2D.velocity = new Vector2(moveLeft*moveSpeed,rigidbody2D.velocity.y);
+		if(shrewBehavior.isDangerous) 
+			rigidbody2D.velocity = new Vector2(moveLeft*moveSpeed,rigidbody2D.velocity.y);
 	}
 }
