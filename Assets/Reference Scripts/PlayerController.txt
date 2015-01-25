@@ -1,0 +1,219 @@
+﻿#pragma warning disable 0414 // private field assigned but not used.
+
+using UnityEngine;
+using System.Collections;
+
+public enum Button {NONE, FIRE1, FIRE2, FIRE3};
+
+[System.Serializable]
+
+public class PlayerController : Controllers {
+	
+	public Weapons[] weapons;
+	
+	//ghetto bounding box
+	public float leftWall = -25.0f;
+	public float rightWall = 22.0f;
+	public float topWall = 15.0f;
+	public float bottomWall = -16.0f;
+
+	public float movementSpeed = 100f;
+	public float movementDamp = .05f;
+	public Transform spawnAnchor;
+	public GameObject shield;
+	
+	private GameObject instantiatedObject;
+	
+	private int HP=100;
+	private int shieldCount = 3;
+	private float shieldTime = 3.0f;
+	private bool shieldsOn = false;
+	private int score=0;
+	
+	//starting position and ending position for movement
+	private Vector3 newPos = new Vector3();
+	private Vector3 defaultPos = new Vector3();
+	private Vector3 curEuler;
+	
+	//for our custom dampener
+	private float horizontalInput;
+	private float verticalInput;
+	private float dampVelocityY=0.0f;
+	private float dampVelocityX=0.0f;
+
+	// Use this for initialization
+	protected override void Start () {
+
+		base.Start();
+
+		curEuler = transform.eulerAngles;
+		
+		//get initial starting position. used for movement	
+		defaultPos = transform.localPosition;
+    	newPos = transform.localPosition;	
+	
+		GameManager.gameManager.UpdateShield(shieldCount);
+	}
+	
+	// Update is called once per frame
+	protected override void Update () {
+	
+		base.Update();
+		GetInput();
+
+	}
+	
+	private void GetInput() {
+		
+		switch (GameManager.gameManager.GetGameState())
+		{
+		case GameState.PLAYING:
+			//Get axis input.
+			//We've applied our own movement dampeners here
+			if(Input.GetAxisRaw("Horizontal") == 0){
+				horizontalInput = Mathf.SmoothDamp(horizontalInput, 0.0f, ref dampVelocityX, movementDamp);
+				newPos.x += horizontalInput * movementSpeed * Time.deltaTime;
+			}
+			else{
+				newPos.x += Input.GetAxisRaw("Horizontal") * movementSpeed * Time.deltaTime;
+				horizontalInput = Input.GetAxisRaw ("Horizontal");
+			}
+			if(Input.GetAxisRaw("Vertical") == 0){
+				verticalInput = Mathf.SmoothDamp(verticalInput, 0.0f, ref dampVelocityY, movementDamp);
+				newPos.y += verticalInput * movementSpeed * Time.deltaTime;
+			}
+			else{
+		    	newPos.y += Input.GetAxisRaw("Vertical") * movementSpeed * Time.deltaTime;
+				verticalInput = Input.GetAxisRaw ("Vertical");
+			}
+	
+			//box player in to screen edges
+	    	newPos.x = Mathf.Clamp(newPos.x, leftWall, rightWall);
+	    	newPos.y = Mathf.Clamp(newPos.y, bottomWall, topWall);
+			
+			//apply new position
+	    	transform.localPosition = newPos;
+			
+			if(Input.GetButton("Fire1")) {
+				
+				for(int numWeapon=0; numWeapon < weapons.Length; numWeapon++){
+					
+					if (weapons[numWeapon].button == Button.FIRE1 && weapons[numWeapon].weaponFirable == true){
+						instantiatedObject = Instantiate(weapons[numWeapon].projectile, weapons[numWeapon].firingPoint.position, weapons[numWeapon].firingPoint.rotation) as GameObject; 
+						instantiatedObject.transform.parent = spawnAnchor;
+						StartCoroutine(PauseWeapon(weapons[numWeapon]));
+						
+					}
+		
+				}
+			}
+			
+			
+			if(Input.GetButton("Fire2")) {
+				
+				for(int numWeapon=0; numWeapon < weapons.Length; numWeapon++){
+					
+					if (weapons[numWeapon].button == Button.FIRE2 && weapons[numWeapon].weaponFirable == true){
+						instantiatedObject = Instantiate(weapons[numWeapon].projectile, weapons[numWeapon].firingPoint.position, weapons[numWeapon].firingPoint.rotation) as GameObject; 
+						instantiatedObject.transform.parent = spawnAnchor;
+						StartCoroutine(PauseWeapon(weapons[numWeapon]));
+						
+					}
+		
+				}
+			}
+
+			if(Input.GetButton ("Shield") && shieldCount > 0 && shieldsOn == false) {
+
+				if(!shield.activeInHierarchy) {
+					shield.SetActive(true);
+					shieldsOn = true;
+					shieldCount--;
+					GameManager.gameManager.UpdateShield(shieldCount);
+				}
+
+				StartCoroutine(ShieldTimer(shieldTime));
+			} 
+			
+			break;
+		case GameState.LOST:
+			break;
+		case GameState.WON:
+			break;
+		default:
+			break;
+		}
+			
+		
+	}
+	
+	void Dead(){
+	
+		GameObject Explosion= (GameObject)Instantiate (Resources.Load("Prefabs/Small Explosion"), this.transform.position, this.transform.rotation);
+		Explosion.transform.parent = GameManager.gameManager.spawnAnchor;
+		HP = 0;
+		GameManager.gameManager.UpdateHealthBar(HP);
+		Destroy (this.gameObject);
+		GameManager.gameManager.SetGameState(GameState.LOST);
+		
+	}
+	
+	void OnTriggerEnter(Collider other){
+		
+		if(other.gameObject.tag=="Enemy"){
+			if(!shieldsOn){
+				Dead();
+			}
+		}
+		
+		if(other.gameObject.tag=="EnemyProjectile"){
+
+			if(!shieldsOn){
+				//get the projectile's behavior script, and apply damage
+				BehaviorProjectile projectile = other.GetComponent<BehaviorProjectile>();
+				HP -= projectile.Damage;
+				if(HP<=0){
+					Dead ();	
+				}else{
+					GameManager.gameManager.UpdateHealthBar(HP);
+				}
+			}
+		}
+	}
+	
+	IEnumerator PauseWeapon(Weapons weapon){
+		
+		weapon.weaponFirable=false;
+		yield return new WaitForSeconds(weapon.firingRate);
+		weapon.weaponFirable=true;
+	}
+
+	IEnumerator ShieldTimer(float shieldTime){
+
+		yield return new WaitForSeconds(shieldTime);
+		shieldsOn = false;
+		shield.SetActive(false);
+
+	}
+	
+	public int GetHealth(){
+		
+		return HP;	
+		
+	}
+
+	public void AddScore(int points){
+
+		score+=points;
+
+	}
+
+	public int GetScore(){
+
+		return score;
+
+	}
+	
+}
+	
+	
