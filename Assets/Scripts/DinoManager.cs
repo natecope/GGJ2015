@@ -91,7 +91,7 @@ public class DinoManager : MonoBehaviour {
 			movingLeft = false;
 		}
 	
-		if(Input.GetKey(KeyCode.D) && Input.GetKey (KeyCode.RightArrow) || rigidbody2D.velocity.x > 0.0f){
+		if(Input.GetKey(KeyCode.D) && Input.GetKey (KeyCode.RightArrow) || rigidbody2D.velocity.x > 0.0f && !movingLeft){
 			Debug.Log("both rights pressed");
 			body.SetBool ("dinoBodyMovingRight", true);
 			Vector3 newDinoScale = new Vector3(-dinoScale.x, dinoScale.y, dinoScale.z);

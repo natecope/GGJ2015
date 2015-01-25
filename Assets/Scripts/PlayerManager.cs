@@ -72,9 +72,9 @@ public class PlayerManager : MonoBehaviour {
 			else{
 				currentState = PlayerAction.Standing;
 				if(rigidbody2D.velocity.x > 0.0f)
-					rigidbody2D.AddForce (new Vector2(-0.5f  * adjustedSpeed * Time.deltaTime, 0));
+					rigidbody2D.AddForce (new Vector2(-0.8f  * adjustedSpeed * Time.deltaTime, 0));
 				else if(rigidbody2D.velocity.x < 0.0f)
-					rigidbody2D.AddForce (new Vector2(0.5f  * adjustedSpeed * Time.deltaTime, 0));
+					rigidbody2D.AddForce (new Vector2(0.8f  * adjustedSpeed * Time.deltaTime, 0));
 
 			}
 		}
