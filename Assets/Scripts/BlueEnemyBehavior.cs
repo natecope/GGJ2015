@@ -43,7 +43,7 @@ public class BlueEnemyBehavior : MonoBehaviour {
 		}                                          	
 	}
 	void FixedUpdate () {
-		Debug.Log(transform.localRotation.z);	
+		//Debug.Log(transform.localRotation.z);	
 		if(shrewBehavior.isDangerous)
 		rigidbody2D.velocity = new Vector2(moveLeft*moveSpeed,rigidbody2D.velocity.y);
 	}
