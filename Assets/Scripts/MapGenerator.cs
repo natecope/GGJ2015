@@ -4,6 +4,7 @@ using System.Collections;
 public class MapGenerator : MonoBehaviour {
 
 	public bool generateMap = true;
+	public bool generatePlayer = false;
 
 	public GameObject boxType1;
 	public GameObject boxType2;
@@ -38,6 +39,9 @@ public class MapGenerator : MonoBehaviour {
 				Instantiate (boxType3, new Vector3 (i, 0.0f), new Quaternion (0.0f, 0.0f, 0.0f, 0.0f));
 			}
 		}
+
+		if(generatePlayer)
+			Instantiate (player, new Vector3 (0, 1), new Quaternion(0,0,0,0));
 	}
 	
 	// Update is called once per frame
