@@ -99,7 +99,7 @@ GameObject:
   - 50: {fileID: 5047660}
   m_Layer: 0
   m_Name: Dino
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,9 +114,26 @@ GameObject:
   - 4: {fileID: 466412}
   - 212: {fileID: 21229406}
   - 95: {fileID: 9529406}
+  - 114: {fileID: 11472706}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &172706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 472706}
+  - 61: {fileID: 6172706}
+  m_Layer: 0
+  m_Name: Feet
+  m_TagString: Feet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +149,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457706}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &413988
 Transform:
   m_ObjectHideFlags: 1
@@ -144,7 +161,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457706}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &442882
 Transform:
   m_ObjectHideFlags: 1
@@ -182,7 +199,7 @@ Transform:
   - {fileID: 442884}
   - {fileID: 442882}
   m_Father: {fileID: 457706}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &457706
 Transform:
   m_ObjectHideFlags: 1
@@ -193,6 +210,7 @@ Transform:
   m_LocalPosition: {x: -2.25999999, y: 1.10000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 472706}
   - {fileID: 447660}
   - {fileID: 413988}
   - {fileID: 413986}
@@ -206,11 +224,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0340000018, y: -.286000013, z: 0}
+  m_LocalPosition: {x: .0339999199, y: -.286000013, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457706}
-  m_RootOrder: 3
+  m_RootOrder: 4
+--- !u!4 &472706
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .649999976, y: .270000011, z: 1}
+  m_Children: []
+  m_Father: {fileID: 457706}
+  m_RootOrder: 0
 --- !u!20 &2047660
 Camera:
   m_ObjectHideFlags: 1
@@ -269,6 +299,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: -.430000007}
+--- !u!61 &6172706
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172706}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!81 &8147660
 AudioListener:
   m_ObjectHideFlags: 1
@@ -346,7 +387,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -459,6 +500,9 @@ MonoBehaviour:
   head2: {fileID: 9513984}
   body: {fileID: 9529406}
   movementSpeed: 1.50999999
+  ripTimeSeconds: 5
+  pullTimeStart: 0
+  pullTimeStarted: 0
   fullSpeed: 0
   movingRight: 1
   movingLeft: 0
@@ -466,6 +510,8 @@ MonoBehaviour:
   doubleJumping: 0
   movingRightFast: 0
   movingLeftFast: 0
+  ripTimeText: {fileID: 0}
+  dinoBodyAudio: {fileID: 11472706}
 --- !u!114 &11447660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,17 +525,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 0
   currentState: 0
-  canFly: 0
+  canFly: 1
+  onGround: 0
   flightSpeed: .25
   MovementSpeed: 800
   isLookingRight: 0
-  dinoMan: {fileID: 0}
+  dinoMan: {fileID: 11435830}
   jumpForce: 350
   maxVelo: 700
   yVelo: 0
   xVelo: 0
   inputH: 0
   inputV: 0
+--- !u!114 &11472706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9366dd28ab33425c8b78564af636852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 11447660}
 --- !u!124 &12447660
 Behaviour:
   m_ObjectHideFlags: 1
