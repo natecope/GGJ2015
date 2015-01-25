@@ -212,7 +212,7 @@ GameObject:
   - 4: {fileID: 55949721}
   - 212: {fileID: 55949720}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +352,7 @@ GameObject:
   - 4: {fileID: 119351495}
   - 212: {fileID: 119351494}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,7 +404,7 @@ GameObject:
   - 4: {fileID: 119435701}
   - 212: {fileID: 119435700}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,7 +456,7 @@ GameObject:
   - 4: {fileID: 121093972}
   - 212: {fileID: 121093973}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -557,7 +557,7 @@ GameObject:
   - 4: {fileID: 162097058}
   - 212: {fileID: 162097057}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,7 +653,7 @@ GameObject:
   - 4: {fileID: 319565830}
   - 212: {fileID: 319565829}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,7 +836,7 @@ GameObject:
   - 4: {fileID: 422399639}
   - 212: {fileID: 422399638}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,7 +888,7 @@ GameObject:
   - 4: {fileID: 426351400}
   - 212: {fileID: 426351401}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,7 +1190,7 @@ GameObject:
   - 4: {fileID: 530137898}
   - 212: {fileID: 530137899}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1405,7 +1405,7 @@ GameObject:
   - 4: {fileID: 580422658}
   - 212: {fileID: 580422659}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1882,7 +1882,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLeft: 0
   moveSpeed: 1
-  shrewBehavior: {fileID: 897768409}
 --- !u!50 &897768404
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2032,6 +2031,7 @@ MonoBehaviour:
   dinoPrefab: {fileID: 157706, guid: 95721bf142f7b46ed8cb72e915066c32, type: 2}
   playerRefs: []
   numberPlayers: 2
+  camRef: {fileID: 0}
 --- !u!4 &930481507
 Transform:
   m_ObjectHideFlags: 0
@@ -2764,7 +2764,7 @@ GameObject:
   - 4: {fileID: 1477863021}
   - 212: {fileID: 1477863020}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2816,7 +2816,7 @@ GameObject:
   - 4: {fileID: 1487363760}
   - 212: {fileID: 1487363761}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2917,7 +2917,7 @@ GameObject:
   - 4: {fileID: 1542421524}
   - 212: {fileID: 1542421523}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2969,7 +2969,7 @@ GameObject:
   - 4: {fileID: 1558118395}
   - 212: {fileID: 1558118396}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3630,7 +3630,7 @@ GameObject:
   - 4: {fileID: 1817386745}
   - 212: {fileID: 1817386744}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3857,7 +3857,7 @@ GameObject:
   - 4: {fileID: 1943067508}
   - 212: {fileID: 1943067509}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3909,7 +3909,7 @@ GameObject:
   - 4: {fileID: 1953822715}
   - 212: {fileID: 1953822714}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3961,7 +3961,7 @@ GameObject:
   - 4: {fileID: 1954588599}
   - 212: {fileID: 1954588598}
   m_Layer: 0
-  m_Name: Grass Ground
+  m_Name: Ground 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

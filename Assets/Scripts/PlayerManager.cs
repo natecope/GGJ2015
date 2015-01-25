@@ -93,7 +93,7 @@ public class PlayerManager : MonoBehaviour {
 
 			}
 		}
-		if(rigidbody2D.velocity.y == 0.0f){
+		//if(rigidbody2D.velocity.y == 0.0f){
 			if (rigidbody2D.velocity.y != 0.0f)
 				if (canFly)
 					adjustedSpeed *= flightSpeed;
@@ -125,11 +125,11 @@ public class PlayerManager : MonoBehaviour {
 					rigidbody2D.velocity = new Vector2(-1 * maxVelo,0);
 				
 			}
-		}
+	//	}
 		
 		
 		//jumping
-		if(movementVertical >0)
+		if(dinoMan.jumping)
 		{
 			if(currentState != PlayerAction.Jump && rigidbody2D.velocity.y ==0.0f){
 		currentState = PlayerAction.Jump;
