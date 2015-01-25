@@ -42,16 +42,24 @@ public class PlayerManager : MonoBehaviour {
 		if (other.gameObject.tag == "Deathbox")
 			hitPoints--;
 		if(other.gameObject.tag == "Enemy")
+		{
+
 			hitPoints--;
+			Debug.Log("ouch!@!@");
+		}	
 		// this insures that the player isn't stopped by the NPC control blocks
 		if (other.gameObject.tag == "MotionControlBlock")
 			Physics2D.IgnoreCollision(this.collider2D, other.collider);
-		
+			
 	}
 
 	// Update is called once per frame
 	void Update () {
+		if(hitPoints ==0){
+			Application.LoadLevel(0);
+		}
 	}
+
 	//Physics updating
 	void FixedUpdate() {
 		float movementHorizontal = 0.0f;

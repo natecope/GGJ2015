@@ -1835,7 +1835,7 @@ GameObject:
   - 114: {fileID: 897768403}
   m_Layer: 0
   m_Name: Shrew
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1999,7 +1999,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &940815903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,6 +2226,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 181846, guid: 727f4f7f6a888a547a4d9c065a86c4bb, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 727f4f7f6a888a547a4d9c065a86c4bb, type: 2}
   m_RootGameObject: {fileID: 1375691483}
@@ -2451,7 +2455,7 @@ Transform:
   - {fileID: 463460685}
   - {fileID: 37520737}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1427670953
 GameObject:
   m_ObjectHideFlags: 0
