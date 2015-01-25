@@ -208,7 +208,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 25f56248af84b83478110dddadafdab9, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
   flightSpeed: .25
   MovementSpeed: 800
   isLookingRight: 0
-  playerSprite: {fileID: 0}
+  dinoMan: {fileID: 0}
   jumpForce: 350
   maxVelo: 700
   yVelo: 0
@@ -311,7 +311,12 @@ MonoBehaviour:
   body: {fileID: 9500000}
   movementSpeed: 1.50999999
   fullSpeed: 0
+  movingRight: 0
+  movingLeft: 0
   jumping: 0
+  doubleJumping: 0
+  movingRightFast: 0
+  movingLeftFast: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

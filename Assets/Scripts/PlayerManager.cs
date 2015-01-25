@@ -54,10 +54,17 @@ public class PlayerManager : MonoBehaviour {
 	}
 	//Physics updating
 	void FixedUpdate() {
-		float movementHorizontal = Input.GetAxis ("Horizontal");
+		float movementHorizontal = 0.0f;
 		float movementVertical = Input.GetAxis ("Vertical");
 		float adjustedSpeed = MovementSpeed;
-		
+
+		if(dinoMan.movingLeft)  
+			movementHorizontal = -1.0f;
+		if(dinoMan.movingRight)
+				movementHorizontal =1.0f;
+
+		if(!dinoMan.movingLeft && !dinoMan.movingRight)
+			movementHorizontal = 0.0f;
 		//begin debug code
 		yVelo = rigidbody2D.velocity.y; 
 		xVelo = rigidbody2D.velocity.x; 

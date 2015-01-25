@@ -80,26 +80,32 @@ public class DinoManager : MonoBehaviour {
 			jumping = false;
 		}
 
-		if(Input.GetKey(KeyCode.A) && Input.GetKey (KeyCode.LeftArrow)|| rigidbody2D.velocity.x < 0.0f){
+		if(Input.GetKey(KeyCode.A) && Input.GetKey (KeyCode.LeftArrow)){	//|| rigidbody2D.velocity.x < 0.0f){
 			Debug.Log("both lefts pressed");
 			body.SetBool ("dinoBodyMovingLeft", true);
 			Vector3 newDinoScale = new Vector3(dinoScale.x, dinoScale.y, dinoScale.z);
 			body.transform.localScale = newDinoScale;
 			movingLeft =true; 
 		} else {
-			body.SetBool ("dinoBodyMovingLeft", false);
+			if(rigidbody2D.velocity.x < 0.0f && !movingLeft)
+				body.SetBool ("dinoBodyMovingLeft", true);
+			else
+				body.SetBool ("dinoBodyMovingLeft", false);
 			movingLeft = false;
 		}
 	
-		if(Input.GetKey(KeyCode.D) && Input.GetKey (KeyCode.RightArrow) || rigidbody2D.velocity.x > 0.0f && !movingLeft){
+		if(Input.GetKey(KeyCode.D) && Input.GetKey (KeyCode.RightArrow)){
 			Debug.Log("both rights pressed");
 			body.SetBool ("dinoBodyMovingRight", true);
 			Vector3 newDinoScale = new Vector3(-dinoScale.x, dinoScale.y, dinoScale.z);
 			body.transform.localScale = newDinoScale;
 			movingRight = true;
-		
+			
 		} else {
-			body.SetBool ("dinoBodyMovingRight", false);
+			if(rigidbody2D.velocity.x > 0.0f && !movingLeft)
+				body.SetBool ("dinoBodyMovingRight", true);
+			else
+				body.SetBool ("dinoBodyMovingRight", false);
 			movingRight = false;
 
 		}
