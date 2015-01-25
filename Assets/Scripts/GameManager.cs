@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject dinoPrefab;
 	public List<GameObject> playerRefs;
 	public int numberPlayers = 2;
-	
+	public Camera camRef;
 	private GameObject dino;
 	public static PlayerManager playerObject;
 
