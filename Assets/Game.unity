@@ -2451,6 +2451,47 @@ SpriteRenderer:
   m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: 5b2aa71c8b5e44247814cf7342564db3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &783029017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 783029019}
+  - 114: {fileID: 783029018}
+  m_Layer: 0
+  m_Name: CameraJumpController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &783029018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783029017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661c085a3e1e04ef4a963b9e60af4957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 1650871665}
+  hero: {fileID: 627313875}
+--- !u!4 &783029019
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783029017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 639.52594, y: 58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &829572854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,6 +3626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLeft: 0
   moveSpeed: 1
+  shrewBehavior: {fileID: 0}
 --- !u!50 &1211459802
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -3808,6 +3850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLeft: 0
   moveSpeed: 1
+  shrewBehavior: {fileID: 0}
 --- !u!50 &1244335445
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -4585,6 +4628,7 @@ GameObject:
   - 92: {fileID: 1650871669}
   - 124: {fileID: 1650871668}
   - 81: {fileID: 1650871667}
+  - 95: {fileID: 1650871671}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4663,6 +4707,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!95 &1650871671
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1650871665}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38f6154f523a34e5980fdecd03812ea3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1674536490
 Prefab:
   m_ObjectHideFlags: 0
@@ -5387,6 +5446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5421aeddf00ef43988e7dbce744150c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squish: {fileID: 0}
   gameMusic: {fileID: 8300000, guid: 1f2804703fc394e16b791ff4c681fca0, type: 3}
   titleMusic: {fileID: 0}
   deathMusic: {fileID: 8300000, guid: 50f4abf583e1c4e06bf7d9436f96ce52, type: 3}
