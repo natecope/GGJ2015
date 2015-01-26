@@ -4476,7 +4476,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &744303788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,7 +6534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d0bd28a38e17a4189db63ec6483609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNumber: 0
+  sceneNumber: 2
 --- !u!61 &1376505849
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7473,6 +7473,10 @@ Prefab:
     - target: {fileID: 428990, guid: 0655b3b62e7484329bb57c4c53eff14e, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402788, guid: 0655b3b62e7484329bb57c4c53eff14e, type: 2}
+      propertyPath: sceneNumber
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0655b3b62e7484329bb57c4c53eff14e, type: 2}

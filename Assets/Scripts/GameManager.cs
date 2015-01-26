@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour {
 			Debug.Log ("Fader change");
 		}
 
-		Application.LoadLevel(0);
+		Application.LoadLevel(Application.loadedLevel);
 		
 	}
 }
