@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d0bd28a38e17a4189db63ec6483609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNumber: 0
+  sceneNumber: 1
 --- !u!198 &19828998
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -12,7 +12,7 @@ public class SplashManager : MonoBehaviour {
 	void Update () {
 		if((Input.GetKey (KeyCode.W) || (Input.GetKey (KeyCode.Joystick1Button0))) && (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.Joystick2Button0))){
 
-			Application.LoadLevel(0);
+			Application.LoadLevel(1);
 
 		}
 	}

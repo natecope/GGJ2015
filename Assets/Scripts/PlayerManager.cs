@@ -15,18 +15,20 @@ public enum PlayerAction{
 
 public class PlayerManager : MonoBehaviour {
 	
-	public int hitPoints;
+	public float hitPoints;
 	public PlayerAction currentState;
 	public bool canFly = false;
 	public bool onGround;
 	public float flightSpeed = 0.25f;
 	public float MovementSpeed = 16000.0f;
-
-	public bool isLookingRight;
+    public bool isLookingRight;
 	public DinoManager dinoMan;
 	public float jumpForce;
 	public float maxVelo;
-	//debugging vars 
+    private bool CamNotDetached = true;
+    public Camera dinCam;
+
+    //debugging vars 
 	public float yVelo;
 	public float xVelo;
 	public float inputH;
@@ -43,7 +45,7 @@ public class PlayerManager : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D other) {
 		if (other.gameObject.tag == "Deathbox")
 			hitPoints--;
-		if(other.gameObject.tag == "Enemy")
+		if(other.gameObject.tag == "Enemy" && currentState != PlayerAction.Jump)
 		{
 
 			hitPoints--;
@@ -85,6 +87,7 @@ public class PlayerManager : MonoBehaviour {
 			//this.gameObject.SetActive(false);
 			dinoMan.DinoDead();
 		}
+     
 	}
 
 	//Physics updating
@@ -122,6 +125,44 @@ public class PlayerManager : MonoBehaviour {
 
 			}
 		}
+        if (gameObject.rigidbody2D.velocity.y != 0.0f )
+        {
+           
+            if(gameObject.rigidbody2D.velocity.y > 0.0f){
+                Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y + (Camera.main.transform.localPosition.y * 0.022f), Camera.main.transform.localPosition.z);
+            }else {
+                Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y - (Camera.main.transform.localPosition.y * 0.044f), Camera.main.transform.localPosition.z);
+            }
+        }/*
+        else if(currentState != PlayerAction.Jump)
+        {
+            if (Camera.main.transform.localPosition.y > 1.25)
+                Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y - (Camera.main.transform.localPosition.y * 0.020f), Camera.main.transform.localPosition.z);
+            else if (Camera.main.transform.localPosition.y < 1.25)
+                Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y + (Camera.main.transform.localPosition.y * 0.020f), Camera.main.transform.localPosition.z);
+           
+        } 
+        */
+        if (gameObject.transform.localPosition.y < -0.2)
+        {
+            if (CamNotDetached != false)
+            {
+                Camera.main.transform.parent = null;
+                CamNotDetached = false;
+            }
+
+            Camera.main.transform.position = new Vector3(dinoMan.body.transform.position.x, 2.2f, -5.0f);
+
+
+        }
+        if (gameObject.transform.localPosition.y < -0.6)
+        {
+       ///     gameObject.rigidbody2D.AddForce(new Vector2(0.0f, 805.0f));
+            hitPoints = 0;
+      //      currentState = PlayerAction.Dead;
+        //    dinoMan.DinoDead();
+
+        }
 		//if(rigidbody2D.velocity.y == 0.0f){
 			if (rigidbody2D.velocity.y != 0.0f)
 				if (canFly)

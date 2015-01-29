@@ -23,13 +23,13 @@ public class AudioManager : MonoBehaviour {
 	
 		instance = this;
 
-		if(Application.loadedLevel == 0){
+		if(Application.loadedLevel > 0){
 			// loaded level is 0 which is game, start with game music
 			musicSource.clip = gameMusic;
 			musicSource.Play();
 		}
 
-		if(Application.loadedLevel == 1){
+		if(Application.loadedLevel == 0){
 			// loaded level is 0 which is title, start with title music
 			musicSource.clip = titleMusic;
 			musicSource.Play();
